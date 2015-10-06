@@ -1,0 +1,16 @@
+# Basic Ubuntu configuration with the LSD interpreter. Useful for testing services.
+
+FROM lappsgrid/ubuntu
+
+MAINTAINER Keith Suderman, suderman@cs.vassar.edu
+
+ENV DLOAD=http://www.anc.org/downloads/docker
+
+WORKDIR /usr/bin
+RUN wget $DLOAD/lsd.tgz 2> /dev/null && \
+    tar xzf lsd.tgz && \
+    rm lsd.tgz && \
+    chmod a+x lsd
+
+
+
