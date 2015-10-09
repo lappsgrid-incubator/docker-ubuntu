@@ -1,11 +1,15 @@
 DOCKER=/usr/local/bin/docker
+IMAGE=lappsgrid/ubuntu
 
 ubuntu:
-	$(DOCKER) build -t lappsgrid/ubuntu .
+	$(DOCKER) build -t $(IMAGE) .
 
 lsd:
-	$(DOCKER) build -f Dockerfile.lsd -t lappsgrid/ubuntu:lsd
+	$(DOCKER) build -f Dockerfile.lsd -t $(IMAGE):lsd
 
+push:
+	$(DOCKER) push $(IMAGE)
+	
 help:
 	@echo "GOALS"
 	@echo "  ubuntu (default)"
