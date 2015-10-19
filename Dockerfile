@@ -11,6 +11,7 @@ FROM ubuntu:14.04
 
 MAINTAINER Keith Suderman, suderman@cs.vassar.edu
 
+ENV TERM=xterm
 RUN apt-get update && apt-get install -y emacs24-nox nano curl wget zip unzip man openjdk-7-jdk 
 	
 
