@@ -1,4 +1,3 @@
-DOCKER=/usr/local/bin/docker
 IMAGE=lappsgrid/ubuntu
 
 ubuntu:
@@ -8,7 +7,7 @@ lsd:
 	$(DOCKER) build -f Dockerfile.lsd -t $(IMAGE):lsd
 
 tag:
-	if [ -n "$(TAG)" ] ; then $(DOCKER) tag $(IMAGE) $(IMAGE):$(TAG) ; fi
+	if [ -n "$(TAG)" ] ; then $(DOCKER) tag $(IMAGE) $(IMAGE):$(TAG) ; docker push $(IMAGE):$(TAG) ; fi
 	
 push:
 	$(DOCKER) push $(IMAGE)
