@@ -7,14 +7,16 @@
 # - PostgreSQL 9.3
 # - Handy things like man, emacs, nano, wget, and curl.
 
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 MAINTAINER Keith Suderman, suderman@cs.vassar.edu
 
-ENV DEBIAN_FRONTEND=noninteractive
-ENV DEB_JAVA_REPO="http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" 
+RUN apt-get update && apt-get install -y emacs24-nox nano curl wget zip unzip man openjdk-8-jdk maven git
+ADD lsd-latest.tgz /usr/local/bin
+RUN chmod +x /usr/local/bin/lsd
+COPY settings.xml /root/.m2/settings.xml
 
-RUN apt-get update && apt-get install -y emacs24-nox nano curl wget zip unzip man openjdk-8-jdk
+
 	
 
 

@@ -1,16 +1,16 @@
 IMAGE=lappsgrid/ubuntu
 
 ubuntu:
-	$(DOCKER) build -t $(IMAGE) .
+	docker build -t $(IMAGE) .
 
 lsd:
-	$(DOCKER) build -f Dockerfile.lsd -t $(IMAGE):lsd
+	docker build -f Dockerfile.lsd -t $(IMAGE):lsd
 
 tag:
-	if [ -n "$(TAG)" ] ; then $(DOCKER) tag $(IMAGE) $(IMAGE):$(TAG) ; docker push $(IMAGE):$(TAG) ; fi
+	if [ -n "$(TAG)" ] ; then docker tag $(IMAGE) $(IMAGE):$(TAG) ; docker push $(IMAGE):$(TAG) ; fi
 	
 push:
-	$(DOCKER) push $(IMAGE)
+	docker push $(IMAGE)
 	
 help:
 	@echo "GOALS"
